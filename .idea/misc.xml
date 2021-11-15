@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/melis/Documents/Training Kotlin/Final Project/FINAL/Task2NewsPagination-MelisaChatrine/app/src/main/res/drawable/bg_white_round.xml" value="0.19583333333333333" />
+        <entry key="..\:/Users/melis/Documents/Training Kotlin/Final Project/FINAL/Task2NewsPagination-MelisaChatrine/app/src/main/res/drawable/btn_light_round.xml" value="0.19583333333333333" />
+        <entry key="..\:/Users/melis/Documents/Training Kotlin/Final Project/FINAL/Task2NewsPagination-MelisaChatrine/app/src/main/res/drawable/btn_light_round_disabled.xml" value="0.19583333333333333" />
+        <entry key="..\:/Users/melis/Documents/Training Kotlin/Final Project/FINAL/Task2NewsPagination-MelisaChatrine/app/src/main/res/drawable/btn_light_round_enabled.xml" value="0.19583333333333333" />
+        <entry key="..\:/Users/melis/Documents/Training Kotlin/Final Project/FINAL/Task2NewsPagination-MelisaChatrine/app/src/main/res/drawable/btn_primary_round.xml" value="0.19583333333333333" />
+        <entry key="..\:/Users/melis/Documents/Training Kotlin/Final Project/FINAL/Task2NewsPagination-MelisaChatrine/app/src/main/res/drawable/btn_primary_round_disabled.xml" value="0.1" />
+        <entry key="..\:/Users/melis/Documents/Training Kotlin/Final Project/FINAL/Task2NewsPagination-MelisaChatrine/app/src/main/res/drawable/btn_primary_round_enabled.xml" value="0.1" />
+        <entry key="..\:/Users/melis/Documents/Training Kotlin/Final Project/FINAL/Task2NewsPagination-MelisaChatrine/app/src/main/res/drawable/btn_solitude_rounded.xml" value="0.19583333333333333" />
+        <entry key="..\:/Users/melis/Documents/Training Kotlin/Final Project/FINAL/Task2NewsPagination-MelisaChatrine/app/src/main/res/drawable/ic_bookmark.xml" value="0.109375" />
+        <entry key="..\:/Users/melis/Documents/Training Kotlin/Final Project/FINAL/Task2NewsPagination-MelisaChatrine/app/src/main/res/layout/confirmation_dialog_fragment.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/melis/Documents/Training Kotlin/Final Project/FINAL/Task2NewsPagination-MelisaChatrine/app/src/main/res/layout/fragment_news_list.xml" value="0.22" />
+        <entry key="..\:/Users/melis/Documents/Training Kotlin/Final Project/FINAL/Task2NewsPagination-MelisaChatrine/app/src/main/res/layout/rv_news_list_items.xml" value="0.2831858407079646" />
+        <entry key="..\:/Users/melis/Documents/Training Kotlin/News-Feed-master/app/src/main/res/drawable/gradient.xml" value="0.1" />
+        <entry key="..\:/Users/melis/Documents/Training Kotlin/News-Feed-master/app/src/main/res/layout/fragment_news_list.xml" value="0.1" />
+        <entry key="..\:/Users/melis/Documents/Training Kotlin/News-Feed-master/app/src/main/res/layout/rv_news_list_items.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
