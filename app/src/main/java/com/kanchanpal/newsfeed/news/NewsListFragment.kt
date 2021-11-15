@@ -40,26 +40,42 @@ class NewsListFragment : Fragment(), Injectable {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        initAction()
-
         viewModel = injectViewModel(viewModelFactory)
+
+        initAction()
+        checkConnection()
+    }
+
+    private fun checkConnection(){
         isConnected = ConnectivityUtil.isConnected(context)
-        if (!isConnected)
-            Toast.makeText(
-                context?.applicationContext,
-                "No internet connection!",
-                Toast.LENGTH_SHORT
-            ).show()
 
-        binding.rvNewsList.adapter = adapter
-        subscribeUI(adapter)
+        if (!isConnected) {
+            tvNoConnection.visibility = View.VISIBLE
+            rvNewsList.visibility = View.GONE
+            progressBar.visibility = View.GONE
+        } else {
+            tvNoConnection.visibility = View.GONE
+            rvNewsList.visibility = View.VISIBLE
 
-        binding.refreshLayout.setOnRefreshListener() {
-            subscribeUI(adapter)
+            binding.rvNewsList.adapter = adapter
+            subscribeUI(adapter, "firstLoad")
+
+            binding.refreshLayout.setOnRefreshListener() {
+                tvNoConnection.visibility = View.GONE
+                subscribeUI(adapter, "refreshPage")
+                checkConnection()
+            }
         }
     }
 
     private fun initAction(){
+
+        binding.refreshLayout.setOnRefreshListener() {
+            tvNoConnection.visibility = View.GONE
+            subscribeUI(adapter, "refreshPage")
+            checkConnection()
+        }
+
         binding.icLogout.setOnClickListener() {
 
             val fragment = ConfirmationDialogFragment("Apakah Anda ingin keluar dari aplikasi Indonews?","Ya","Tidak")
@@ -78,9 +94,9 @@ class NewsListFragment : Fragment(), Injectable {
         }
     }
 
-    private fun subscribeUI(adapter: NewsAdapter) {
+    private fun subscribeUI(adapter: NewsAdapter, action: String) {
 
-        val data = viewModel.newsList(isConnected)
+        val data = viewModel.newsList(isConnected, action)
         binding.refreshLayout.finishRefresh()
         data?.networkState?.observe(viewLifecycleOwner, Observer {
             when (it.status) {
@@ -88,8 +104,7 @@ class NewsListFragment : Fragment(), Injectable {
                     progressBar.visibility = View.VISIBLE
                 }
                 Status.FAILED -> {
-                    progressBar.visibility = View.GONE
-                    // Handle fail state
+                    tvNoConnection.visibility = View.VISIBLE
                 }
                 Status.SUCCESS -> {
                     progressBar.visibility = View.GONE

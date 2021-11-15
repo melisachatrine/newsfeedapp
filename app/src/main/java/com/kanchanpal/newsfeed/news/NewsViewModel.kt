@@ -15,7 +15,11 @@ class NewsViewModel @Inject constructor(
 ) : ViewModel() {
     private var newsList: Data<NewsListModel>? = null
 
-    fun newsList(connectivityAvailable: Boolean): Data<NewsListModel>? {
+    fun newsList(connectivityAvailable: Boolean, action: String): Data<NewsListModel>? {
+
+        if(action == "refresh") {
+            newsList == null
+        }
 
         if(newsList == null) {
             newsList = repository.observePagedNews(connectivityAvailable, ioCoroutineScope)
