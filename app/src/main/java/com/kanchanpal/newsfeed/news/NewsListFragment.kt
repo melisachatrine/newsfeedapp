@@ -106,7 +106,7 @@ class NewsListFragment : Fragment(), Injectable {
         })
 
         ivBackToTop.setOnClickListener {
-            binding.rvNewsList.smoothScrollToPosition(0)
+            binding.rvNewsList.scrollToPosition(0)
         }
     }
 
