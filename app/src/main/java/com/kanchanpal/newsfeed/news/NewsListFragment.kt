@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.RecyclerView
 import com.kanchanpal.newsfeed.api.Status
 import com.kanchanpal.newsfeed.base.ConfirmationDialogFragment
 import com.kanchanpal.newsfeed.commonUtil.ConnectivityUtil
@@ -91,6 +92,21 @@ class NewsListFragment : Fragment(), Injectable {
                 childFragmentManager,
                 ConfirmationDialogFragment::class.java.canonicalName
             )
+        }
+
+        binding.rvNewsList.addOnScrollListener(object: RecyclerView.OnScrollListener() {
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                super.onScrollStateChanged(recyclerView, newState)
+                if(binding.rvNewsList.canScrollVertically(-1)){
+                    ivBackToTop.visibility = View.VISIBLE
+                } else {
+                    ivBackToTop.visibility = View.GONE
+                }
+            }
+        })
+
+        ivBackToTop.setOnClickListener {
+            binding.rvNewsList.smoothScrollToPosition(0)
         }
     }
 
