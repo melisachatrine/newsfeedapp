@@ -6,6 +6,11 @@ import javax.inject.Qualifier
 @Qualifier
 annotation class NewsApi
 
+
+@Retention(AnnotationRetention.BINARY)
+@Qualifier
+annotation class LoginApi
+
 @Retention(AnnotationRetention.BINARY)
 @Qualifier
 annotation class CoroutineScopeIO

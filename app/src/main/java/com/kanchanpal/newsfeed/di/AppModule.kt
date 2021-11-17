@@ -1,6 +1,7 @@
 package com.kanchanpal.newsfeed.di
 
 import android.app.Application
+import com.kanchanpal.newsfeed.api.LoginService
 import com.kanchanpal.newsfeed.api.NewsService
 import com.kanchanpal.newsfeed.data.AppDatabase
 import com.kanchanpal.newsfeed.data.newsSet.NewsRemoteDataSource
@@ -19,8 +20,14 @@ class AppModule {
     @Singleton
     @Provides
     fun provideNewsService(@NewsApi okhttpClient: OkHttpClient,
-            converterFactory: GsonConverterFactory
+                           converterFactory: GsonConverterFactory
     ) = provideService(okhttpClient, converterFactory, NewsService::class.java)
+
+    @Singleton
+    @Provides
+    fun provideLoginService(@LoginApi okhttpClient: OkHttpClient,
+                            converterFactory: GsonConverterFactory
+    ) = provideLoginService(okhttpClient, converterFactory, LoginService::class.java)
 
     @Singleton
     @Provides
@@ -30,6 +37,14 @@ class AppModule {
     @NewsApi
     @Provides
     fun providePrivateOkHttpClient(
+        upstreamClient: OkHttpClient
+    ): OkHttpClient {
+        return upstreamClient.newBuilder().build()
+    }
+
+    @LoginApi
+    @Provides
+    fun provideLoginOkHttpClient(
         upstreamClient: OkHttpClient
     ): OkHttpClient {
         return upstreamClient.newBuilder().build()
@@ -50,18 +65,34 @@ class AppModule {
 
 
     private fun createRetrofit(
-            okhttpClient: OkHttpClient,
-            converterFactory: GsonConverterFactory
+        okhttpClient: OkHttpClient,
+        converterFactory: GsonConverterFactory
     ): Retrofit {
         return Retrofit.Builder()
-                .baseUrl(NewsService.ENDPOINT)
-                .client(okhttpClient)
-                .addConverterFactory(converterFactory)
-                .build()
+            .baseUrl(NewsService.ENDPOINT)
+            .client(okhttpClient)
+            .addConverterFactory(converterFactory)
+            .build()
+    }
+
+    private fun createLoginRetrofit(
+        okhttpClient: OkHttpClient,
+        converterFactory: GsonConverterFactory
+    ): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl(LoginService.ENDPOINT)
+            .client(okhttpClient)
+            .addConverterFactory(converterFactory)
+            .build()
     }
 
     private fun <T> provideService(okhttpClient: OkHttpClient,
-            converterFactory: GsonConverterFactory, clazz: Class<T>): T {
+                                   converterFactory: GsonConverterFactory, clazz: Class<T>): T {
         return createRetrofit(okhttpClient, converterFactory).create(clazz)
+    }
+
+    private fun <T> provideLoginService(okhttpClient: OkHttpClient,
+                                        converterFactory: GsonConverterFactory, clazz: Class<T>): T {
+        return createLoginRetrofit(okhttpClient, converterFactory).create(clazz)
     }
 }
