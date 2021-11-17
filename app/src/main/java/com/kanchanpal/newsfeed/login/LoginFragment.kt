@@ -15,6 +15,7 @@ import com.kanchanpal.newsfeed.api.Status
 import com.kanchanpal.newsfeed.databinding.FragmentLoginNewBinding
 import com.kanchanpal.newsfeed.di.Injectable
 import com.kanchanpal.newsfeed.di.injectViewModel
+import com.kanchanpal.newsfeed.helper.UserStorage
 import com.kanchanpal.newsfeed.helper.encrypt
 import com.kanchanpal.newsfeed.news.NewsListFragmentDirections
 import javax.inject.Inject
@@ -25,6 +26,8 @@ class LoginFragment : Fragment(), Injectable {
     lateinit var viewModelFactory: ViewModelProvider.Factory
     private lateinit var viewModel: LoginViewModel
     private lateinit var binding: FragmentLoginNewBinding
+    lateinit var userStorage: UserStorage
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,7 +40,7 @@ class LoginFragment : Fragment(), Injectable {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        userStorage = UserStorage(context!!)
         viewModel = injectViewModel(viewModelFactory)
         binding.btnLogin.setOnClickListener {
             if (!Patterns.EMAIL_ADDRESS.matcher(binding.etEmail.text.toString()).matches() ) {
@@ -60,6 +63,7 @@ class LoginFragment : Fragment(), Injectable {
                         binding.clProgressBar.visibility = View.GONE
                         resource.data?.let { user ->
                             Toast.makeText(context, user.token.encrypt(), Toast.LENGTH_LONG).show()
+                            userStorage.setUser(user)
                         }
                         findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToNewsListFragment(NewsListModel()))
                     }

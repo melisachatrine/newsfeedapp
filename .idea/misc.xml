@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Christian/AndroidStudioProjects/tugas/newsfeedapp/app/src/main/res/drawable/bg_card.xml" value="0.1890625" />
+        <entry key="..\:/Users/Christian/AndroidStudioProjects/tugas/newsfeedapp/app/src/main/res/layout/activity_main.xml" value="0.1859375" />
+        <entry key="..\:/Users/Christian/AndroidStudioProjects/tugas/newsfeedapp/app/src/main/res/layout/fragment_login_new.xml" value="0.1" />
         <entry key="..\:/Users/melis/Documents/Training Kotlin/Final Project/FINAL/Task2NewsPagination-MelisaChatrine/app/src/main/res/drawable/bg_white_round.xml" value="0.19583333333333333" />
         <entry key="..\:/Users/melis/Documents/Training Kotlin/Final Project/FINAL/Task2NewsPagination-MelisaChatrine/app/src/main/res/drawable/btn_light_round.xml" value="0.19583333333333333" />
         <entry key="..\:/Users/melis/Documents/Training Kotlin/Final Project/FINAL/Task2NewsPagination-MelisaChatrine/app/src/main/res/drawable/btn_light_round_disabled.xml" value="0.19583333333333333" />
@@ -21,7 +24,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
