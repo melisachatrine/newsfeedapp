@@ -1,18 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_main"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.kanchanpal.newsfeed.login.SplashFragment"
+        android:label="SplashFragment" >
+        <action
+            android:id="@+id/action_splashFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@+id/nav_main"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashFragment_to_newsListFragment"
+            app:destination="@id/newsListFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@+id/nav_main"
+            app:popUpToInclusive="true" />
+    </fragment>
 
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.kanchanpal.newsfeed.login.LoginFragment"
         android:label="LoginFragment" >
-        <argument
-            android:name="user"
-            app:argType="com.kanchanpal.newsfeed.api.User" />
+
         <action
             android:id="@+id/action_loginFragment_to_newsListFragment"
-            app:destination="@id/newsListFragment"/>
+            app:destination="@id/newsListFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@+id/nav_main"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
