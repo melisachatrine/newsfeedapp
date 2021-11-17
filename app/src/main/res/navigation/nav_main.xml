@@ -44,6 +44,9 @@
         <action
             android:id="@+id/action_newsListFragment_to_newsDetailFragment"
             app:destination="@id/newsDetailFragment"/>
+        <action
+            android:id="@+id/action_newsListFragment_to_splashFragment"
+            app:destination="@id/splashFragment"/>
     </fragment>
     <fragment
         android:id="@+id/newsDetailFragment"

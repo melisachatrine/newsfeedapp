@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.kanchanpal.newsfeed.api.Status
 import com.kanchanpal.newsfeed.base.ConfirmationDialogFragment
@@ -16,6 +17,8 @@ import com.kanchanpal.newsfeed.commonUtil.ConnectivityUtil
 import com.kanchanpal.newsfeed.databinding.FragmentNewsListBinding
 import com.kanchanpal.newsfeed.di.Injectable
 import com.kanchanpal.newsfeed.di.injectViewModel
+import com.kanchanpal.newsfeed.helper.UserStorage
+import com.kanchanpal.newsfeed.login.SplashFragmentDirections
 import kotlinx.android.synthetic.main.fragment_news_list.*
 import javax.inject.Inject
 
@@ -26,6 +29,7 @@ class NewsListFragment : Fragment(), Injectable {
     private lateinit var viewModel: NewsViewModel
     private var isConnected : Boolean = true
     private lateinit var  binding : FragmentNewsListBinding
+    lateinit var userStorage: UserStorage
     val adapter = NewsAdapter()
 
 
@@ -33,14 +37,14 @@ class NewsListFragment : Fragment(), Injectable {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentNewsListBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        userStorage = UserStorage(context!!)
         viewModel = injectViewModel(viewModelFactory)
 
         initAction()
@@ -86,6 +90,8 @@ class NewsListFragment : Fragment(), Injectable {
                 }
                 fragment.setOnYesListener {
                     //delete all repositories and cache data & direct to login page
+                    userStorage.delUser()
+                    findNavController().navigate(NewsListFragmentDirections.actionNewsListFragmentToSplashFragment())
                 }
             }
             fragment.show(
