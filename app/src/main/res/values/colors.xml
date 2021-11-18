@@ -9,6 +9,7 @@
     <color name="colorDarkGray">#bababa</color>
     <color name="colorTransparent">#00BABABA</color>
     <color name="colorTranslucent">#4A000000</color>
+    <color name="colorWhite">#FFFFFF</color>
 
 
 </resources>
