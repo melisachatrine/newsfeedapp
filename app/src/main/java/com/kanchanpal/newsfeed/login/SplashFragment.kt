@@ -13,8 +13,10 @@ import com.kanchanpal.newsfeed.databinding.FragmentLoginNewBinding
 import com.kanchanpal.newsfeed.databinding.FragmentSplashBinding
 import com.kanchanpal.newsfeed.di.Injectable
 import com.kanchanpal.newsfeed.helper.UserStorage
+import java.util.*
+import kotlin.concurrent.schedule
 
-class SplashFragment: Fragment(), Injectable {
+class SplashFragment : Fragment(), Injectable {
     private lateinit var binding: FragmentSplashBinding
     lateinit var userStorage: UserStorage
 
@@ -30,14 +32,24 @@ class SplashFragment: Fragment(), Injectable {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         userStorage = UserStorage(context!!)
-        if(userStorage.getUser() != null){
-            Log.e("userstorage",userStorage.getUser().toString())
+        if (userStorage.getUser() != null) {
+            Log.e("userstorage", userStorage.getUser().toString())
             //to newslist
-            findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToNewsListFragment(NewsListModel()))
+            Timer("SettingUp", false).schedule(2000) {
+                findNavController().navigate(
+                    SplashFragmentDirections.actionSplashFragmentToNewsListFragment(
+                        NewsListModel()
+                    )
+                )
 
-        }else{
+            }
+
+        } else {
             //to login
-            findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToLoginFragment())
+            Timer("SettingUp", false).schedule(2000) {
+                findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToLoginFragment())
+            }
+
         }
     }
 }
