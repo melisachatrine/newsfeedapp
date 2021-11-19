@@ -16,7 +16,9 @@
         android:largeHeap="true"
         android:hardwareAccelerated="false"
         android:theme="@style/AppTheme">
-        <activity android:name="com.kanchanpal.newsfeed.MainActivity">
+        <activity
+            android:name="com.kanchanpal.newsfeed.MainActivity"
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

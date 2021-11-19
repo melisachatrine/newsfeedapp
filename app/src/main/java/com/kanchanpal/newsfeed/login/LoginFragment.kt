@@ -21,6 +21,7 @@ import com.kanchanpal.newsfeed.di.injectViewModel
 import com.kanchanpal.newsfeed.helper.AsteriskPasswordTransformationMethod
 import com.kanchanpal.newsfeed.helper.UserStorage
 import com.kanchanpal.newsfeed.helper.encrypt
+import com.kanchanpal.newsfeed.helper.isValidEmail
 import com.kanchanpal.newsfeed.news.NewsListFragmentDirections
 import kotlinx.android.synthetic.main.fragment_login_new.*
 import javax.inject.Inject
@@ -73,12 +74,22 @@ class LoginFragment : Fragment(), Injectable {
         }
 
         binding.btnLogin.setOnClickListener {
-            if (!Patterns.EMAIL_ADDRESS.matcher(binding.etEmail.text.toString()).matches() ) {
-                Toast.makeText(context, "Email Salah", Toast.LENGTH_LONG).show()
 
-            } else {
+            var email = binding.etEmail.text.toString().trim()
+            var password = binding.etPassword.text.toString().trim()
+
+            if (email.isValidEmail() && password.isNotEmpty()) {
                 login(binding.etEmail.text.toString(), binding.etPassword.text.toString())
-
+            } else {
+                if(email.isEmpty()) {
+                    Toast.makeText(context, "Email tidak boleh kosong.", Toast.LENGTH_LONG).show()
+                }
+                else if (!email.isValidEmail()) {
+                    Toast.makeText(context, "Format email salah.", Toast.LENGTH_LONG).show()
+                }
+                else if (password.isEmpty()) {
+                    Toast.makeText(context, "Password tidak boleh kosong.", Toast.LENGTH_LONG).show()
+                }
             }
 
         }
@@ -91,18 +102,16 @@ class LoginFragment : Fragment(), Injectable {
                     Status.SUCCESS -> {
                         binding.clProgressBar.visibility = View.GONE
                         resource.data?.let { user ->
-//                            Toast.makeText(context, user.token.encrypt(), Toast.LENGTH_LONG).show()
                             userStorage.setUser(user)
                         }
                         findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToNewsListFragment(NewsListModel()))
                     }
                     Status.FAILED -> {
                         binding.clProgressBar.visibility = View.GONE
-                        Toast.makeText(context, it.message, Toast.LENGTH_LONG).show()
+                        Toast.makeText(context, "Email/Password yang Anda Masukkan Salah", Toast.LENGTH_LONG).show()
                     }
                     Status.RUNNING -> {
                         binding.clProgressBar.visibility = View.VISIBLE
-                        Toast.makeText(context, "loading", Toast.LENGTH_LONG).show()
                     }
                 }
             }

@@ -59,12 +59,12 @@ class NewsAdapter : PagedListAdapter<NewsListModel, NewsAdapter.ViewHolder>(Diff
         private fun initAction(newsItem: NewsListModel?){
             println("itemfaveINITACTION "+newsItem.toString())
 
-            binding.addToFavorite.setOnClickListener(){
-                if (newsItem != null) {
-                    addlist(newsItem)
-                }
-                println("itemfaveONCLICK")
-            }
+//            binding.addToFavorite.setOnClickListener(){
+//                if (newsItem != null) {
+//                    addlist(newsItem)
+//                }
+//                println("itemfaveONCLICK")
+//            }
         }
     }
 

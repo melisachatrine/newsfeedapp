@@ -35,7 +35,7 @@ class SplashFragment : Fragment(), Injectable {
         if (userStorage.getUser() != null) {
             Log.e("userstorage", userStorage.getUser().toString())
             //to newslist
-            Timer("SettingUp", false).schedule(2000) {
+            Timer("SettingUp", false).schedule(1000) {
                 findNavController().navigate(
                     SplashFragmentDirections.actionSplashFragmentToNewsListFragment(
                         NewsListModel()
@@ -46,7 +46,7 @@ class SplashFragment : Fragment(), Injectable {
 
         } else {
             //to login
-            Timer("SettingUp", false).schedule(2000) {
+            Timer("SettingUp", false).schedule(1000) {
                 findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToLoginFragment())
             }
 

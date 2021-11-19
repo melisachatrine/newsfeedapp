@@ -1,6 +1,7 @@
 package com.kanchanpal.newsfeed.helper
 
 import android.util.Base64
+import android.util.Patterns
 import com.kanchanpal.newsfeed.api.NewsListModel
 import javax.crypto.Cipher
 import javax.crypto.SecretKeyFactory
@@ -80,4 +81,9 @@ fun generateRandomString(): String? {
         println("Error while generate random number: $e");
     }
     return null
+}
+
+fun CharSequence?.isValidEmail(): Boolean {
+    return this != null && """@(.+)\.(.{2,})$""".toRegex().containsMatchIn(this) && this.matches(
+        Patterns.EMAIL_ADDRESS.toRegex())
 }
