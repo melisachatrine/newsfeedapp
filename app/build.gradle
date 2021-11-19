@@ -117,6 +117,10 @@ dependencies {
     //UI
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
 
+    //scrolling
+    implementation 'me.angeldevil:AutoScrollViewPager:1.0.8'
+    implementation 'me.relex:circleindicator:2.1.4'
+
     androidTestImplementation "androidx.test:core:$rootProject.testCoreVersion"
     androidTestImplementation "androidx.test:runner:$rootProject.testRunnerVersion"
     androidTestImplementation "androidx.test:rules:$rootProject.testRulesVersion"

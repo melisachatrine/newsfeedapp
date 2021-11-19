@@ -9,11 +9,18 @@
         <entry key="..\:/Users/Christian/AndroidStudioProjects/tugas/newsfeedapp/app/src/main/res/layout/fragment_splash.xml" value="0.33489583333333334" />
         <entry key="..\:/Users/melis/Documents/GitHub/newsfeedapp/app/src/main/res/drawable/bg_card.xml" value="0.1" />
         <entry key="..\:/Users/melis/Documents/GitHub/newsfeedapp/app/src/main/res/drawable/bg_edittext.xml" value="0.1" />
+        <entry key="..\:/Users/melis/Documents/GitHub/newsfeedapp/app/src/main/res/drawable/circle_selected.xml" value="0.1" />
+        <entry key="..\:/Users/melis/Documents/GitHub/newsfeedapp/app/src/main/res/drawable/circle_unselected.xml" value="0.1" />
+        <entry key="..\:/Users/melis/Documents/GitHub/newsfeedapp/app/src/main/res/drawable/ic_chevron_left.xml" value="0.19583333333333333" />
+        <entry key="..\:/Users/melis/Documents/GitHub/newsfeedapp/app/src/main/res/drawable/indicator_transition.xml" value="0.1" />
         <entry key="..\:/Users/melis/Documents/GitHub/newsfeedapp/app/src/main/res/drawable/radius_layout.xml" value="0.1" />
         <entry key="..\:/Users/melis/Documents/GitHub/newsfeedapp/app/src/main/res/layout/activity_main.xml" value="0.14266304347826086" />
         <entry key="..\:/Users/melis/Documents/GitHub/newsfeedapp/app/src/main/res/layout/fragment_login_new.xml" value="0.22" />
-        <entry key="..\:/Users/melis/Documents/GitHub/newsfeedapp/app/src/main/res/layout/fragment_news_list.xml" value="0.1" />
+        <entry key="..\:/Users/melis/Documents/GitHub/newsfeedapp/app/src/main/res/layout/fragment_news_detail.xml" value="0.13768115942028986" />
+        <entry key="..\:/Users/melis/Documents/GitHub/newsfeedapp/app/src/main/res/layout/fragment_news_list.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/melis/Documents/GitHub/newsfeedapp/app/src/main/res/layout/fragment_onboard.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/melis/Documents/GitHub/newsfeedapp/app/src/main/res/layout/fragment_splash.xml" value="0.13333333333333333" />
+        <entry key="..\:/Users/melis/Documents/GitHub/newsfeedapp/app/src/main/res/layout/fragment_subscribe.xml" value="0.22" />
         <entry key="..\:/Users/melis/Documents/GitHub/newsfeedapp/app/src/main/res/layout/radius_layout.xml" value="0.1" />
         <entry key="..\:/Users/melis/Documents/GitHub/newsfeedapp/app/src/main/res/layout/rv_news_list_items.xml" value="0.1" />
         <entry key="..\:/Users/melis/Documents/Training Kotlin/Final Project/FINAL/Task2NewsPagination-MelisaChatrine/app/src/main/res/drawable/bg_white_round.xml" value="0.19583333333333333" />

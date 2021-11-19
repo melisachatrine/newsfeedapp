@@ -47,6 +47,9 @@
         <action
             android:id="@+id/action_newsListFragment_to_splashFragment"
             app:destination="@id/splashFragment"/>
+        <action
+            android:id="@+id/action_newsListFragment_to_subscribeFragment"
+            app:destination="@id/subscribeFragment" />
     </fragment>
     <fragment
         android:id="@+id/newsDetailFragment"
@@ -55,6 +58,12 @@
         <argument
             android:name="newsItem"
             app:argType="com.kanchanpal.newsfeed.api.NewsListModel" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/subscribeFragment"
+        android:name="com.kanchanpal.newsfeed.subscribe.SubscribeFragment"
+        android:label="SubscribeFragment" >
     </fragment>
 
 </navigation>

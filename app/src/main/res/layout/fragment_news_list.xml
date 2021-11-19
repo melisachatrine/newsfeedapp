@@ -38,14 +38,14 @@
                 android:src="@drawable/ic_out"
                 android:layout_gravity="right|top"/>
 
-<!--            <ImageView-->
-<!--                android:id="@+id/icAddToFavorite"-->
-<!--                android:layout_width="25dp"-->
-<!--                android:layout_height="25dp"-->
-<!--                android:layout_margin="5dp"-->
-<!--                android:clickable="true"-->
-<!--                android:src="@drawable/ic_bookmark"-->
-<!--                android:layout_gravity="right"/>-->
+            <ImageView
+                android:id="@+id/icAddToFavorite"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                android:src="@drawable/ic_subscribe"
+                android:layout_gravity="right"/>
 
         </androidx.appcompat.widget.Toolbar>
 

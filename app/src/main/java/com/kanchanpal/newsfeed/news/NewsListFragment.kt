@@ -73,6 +73,10 @@ class NewsListFragment : Fragment(), Injectable {
 
     private fun initAction(){
 
+        binding.icAddToFavorite.setOnClickListener(){
+            findNavController().navigate(NewsListFragmentDirections.actionNewsListFragmentToSubscribeFragment())
+        }
+
         binding.refreshLayout.setOnRefreshListener() {
             tvNoConnection.visibility = View.GONE
             subscribeUI(adapter, "refreshPage")

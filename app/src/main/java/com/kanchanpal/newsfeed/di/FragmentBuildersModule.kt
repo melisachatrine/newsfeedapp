@@ -19,4 +19,7 @@ abstract class FragmentBuildersModule {
 
     @ContributesAndroidInjector
     abstract fun contributeSplashFragment(): SplashFragment
+
+//    @ContributesAndroidInjector
+//    abstract fun contributeSubscribeFragment(): SubscribeFragment
 }
