@@ -1,5 +1,6 @@
 package com.kanchanpal.newsfeed.login
 
+import android.app.Activity
 import android.os.Bundle
 import android.text.method.SingleLineTransformationMethod
 import android.util.Patterns
@@ -7,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -74,6 +76,10 @@ class LoginFragment : Fragment(), Injectable {
         }
 
         binding.btnLogin.setOnClickListener {
+
+            val imm = context?.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager?
+            imm?.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
+
 
             var email = binding.etEmail.text.toString().trim()
             var password = binding.etPassword.text.toString().trim()
